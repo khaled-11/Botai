@@ -1,0 +1,33 @@
+<%- include("header_main") -%>  
+<title>Botai | Dashboard</title>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0&appId=189993795563654&autoLogAppEvents=1" nonce="pG1IzRJN"></script>
+  <script src = "/js_main?policy=dash_"></script>
+</head>
+<body>
+  <div class="container-fluid" style = "width:98%">
+    <div class="d-flex justify-content-center" style="margin-top:100px; margin-bottom:15px;">
+      <h1 id = "dash" style="display:none;">Dashboard</h1>
+    </div>
+    <div class="d-flex justify-content-center" >
+      <div class="spinner-grow text-primary" style="width: 6rem; height: 6rem; margin-top:70px; margin-bottom:70px; display: none" role="status" id="loader">
+      </div>
+    </div>
+    <h5 style = "margin-left:5%; margin-right:5%" id="welcome_msg"></h5>
+    <div class="row justify-content-center" style = "margin-top:10px; margin-bottom:15px;">
+      <button type='button' class='btn btn-md btn-primary' id = "addDiv" style="font-weight : bold ; display:none; width: 220px; margin-top:10px; margin-bottom:10px;" onclick='fb_login();'>Add / Remove Pages</button>
+      <button type='button' class='btn btn-md btn-dark' id = "addDiv2" style="font-weight : bold ; display:none; margin-left:20px; margin-right:20px; width: 220px; margin-top:10px; margin-bottom:10px;" onclick='fb_login2();'>Manage All Business</button>
+
+    </div>
+    <divMain></divMain>
+    <div class="row justify-content-center">
+      <button type='button' class='btn btn-md btn-danger' id = "removeDiv" style="font-weight : bold ; display:none; margin-top:15px; width: 220px;" onclick="deleteAccount()">Delete Account</button>
+    </div>  
+  </div>
+  <divMain2></divMain2>
+  <divDelete></divDelete>
+  <script>
+    dataFetch();
+  </script>
+</body>
+<br><br>
+<%- include("footer") -%>

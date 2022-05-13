@@ -1,0 +1,49 @@
+<%- include("header") -%>
+<p>After you create the Fundraising, we will send a notification to all of our subscribed users.
+<br>You can donate after you create the Fundraising with your linked Amazon Account.</p>
+
+<div class="register-form">
+
+        <br>    
+        Fundraising Name:
+        <br>    
+        <input type="text" required = "true" name="fund_name" style="display:full">
+        <br>
+        <br>
+        Fundraising Tagline:
+        <br>
+        <input type="text" required = "true" name="tagline" style="display:full">
+        <br>
+        <br>
+        Fundraising Limit:
+        <br>
+        <input type="number" min="100" step="5" required = "true" name="limit" style="display:full">
+        <br>
+        <br>
+        Fundraising Image:
+        <br>
+        <input type="text" required = "true" name="image" style="display:full">
+        <br>
+        <br>
+        <button class="btn btn-primary next mx-2" onclick= "test()" id="next1">Let's Go</button> </div>
+    </div>
+</center>
+<script>
+    function test(){
+        console.log("test")
+        data = {test:"fdfd jfkdj \n fdjif uiod "}
+        fetch(`/test`, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+      })
+      .then(response => response.json())
+      .then(data => {
+          console.log(data)
+      });
+    }
+</script>
+
+<%- include("footer") -%>

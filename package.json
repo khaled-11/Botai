@@ -1,0 +1,43 @@
+{
+  "name": "wit_faq",
+  "version": "1.0.0",
+  "description": "Wit.ai Messenger Chatbot with tha ability to be trained and add intents from the conversation",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khaled-11/wit_faq.git"
+  },
+  "keywords": [
+    "wit.ai",
+    "Messenger",
+    "Chatbot"
+  ],
+  "author": "Khaled Abouseada",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khaled-11/wit_faq/issues"
+  },
+  "homepage": "https://github.com/khaled-11/wit_faq#readme",
+  "dependencies": {
+    "aws-sdk": "^2.1048.0",
+    "axios": "^0.21.4",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^5.0.0-beta1",
+    "crypto-js": "^4.0.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "ffmpeg": "0.0.4",
+    "fs": "0.0.1-security",
+    "multer": "^1.4.2",
+    "mysql": "^2.18.1",
+    "path": "^0.12.7",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
+  }
+}

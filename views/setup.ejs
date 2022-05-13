@@ -1,0 +1,142 @@
+<%- include("header") -%>
+<title>Smart Bot | Setup the App.</title>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>      
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<body>      
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- Image and text -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="/">
+    <img src="/favicon-16x16.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    Smart-Bot
+  </a>
+</nav>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Chatbots
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Simple Bot</a>
+                <a class="dropdown-item" href="#">Survey Bot</a>
+                <a class="dropdown-item" href="#">E-commerce Bot</a>
+                <a class="dropdown-item" href="#">Data-sharing Bot</a>
+                <a class="dropdown-item" href="#">Customize your Bot</a>
+
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item">There will be more!</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+          </ul>
+
+          <div class="btn-group" style="margin-top:2px; margin-right:20px;">
+            <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Change Language
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <button class="dropdown-item" type="button">French</button>
+              <button class="dropdown-item" type="button">Spanish</button>
+              <a class="dropdown-item" href="#" style="margin-right:20px;">Arabic</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+<center>
+    <br> 
+    <div class="loader" id="loader" style="background-color:#fff; padding: 40px"></div>  
+  </center>
+      <script>
+        myFetch();
+      async function myFetch(){
+      await fetch('/client_data')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("loader").style.display = 'none';
+        document.getElementById("page_id").value =  `${data.client_data.Item.current_page.S.split("_",1)}`;
+        document.getElementById("msg1").innerHTML = `Let's complete the required information below:`;
+        document.getElementById("msg2").innerHTML = `Add {{user_first_name}} in Greeting / Get Started for User Name.`;
+
+        });
+      }
+      </script>
+    <center>
+
+    <h4 id = "msg1"></h4>
+    <h6 id = "msg2"></h6>
+    <div class="confirm-form">
+        <form action="last2" id = "confirm" method="POST">
+            <input type="text" id="page_id" name="page_id" required="required" value=""  style="display:full">
+            <b>Messenger Greeting Message:</b>
+            <textarea name="greeting" cols="30" minlength="10" maxlength="160" placeholder="This message appears before the user click Get Started." required="required"></textarea>
+            <hr>
+
+
+            <b>Messenger Get Started Message:</b>
+            <br>
+            <label for = "get_started_type"><b>Response Type</b></label>
+            <select id = "get_started_type", name = "get_started_type">
+              <option value = "text">Text</option>
+              <option value = "q_replies">Quick Replies</option>
+              <option value = "template">Template</option>
+              <option value = "attachment">Attachment</option>
+            </select>
+            <textarea name="get_started" cols="30" minlength="10" maxlength="1600" placeholder="The first message after the user click Get Started. Ex: Hi {{user_first_name}}, welcome to ..." required="required"></textarea>
+            
+            
+            
+            <hr>
+            <b>First Intent name:</b>
+            <input type="text" name="first_intent" minlength="2" maxlength="20" placeholder="Name of the First Intent." required="required">
+            <br><br>
+            <b>Utterance for the First Intent:</b>
+            <input type="text" name="first_utterance" minlength="2" maxlength="80" placeholder="EX: Where is the location?" required="required">
+            <br><br>
+            <b>Response for the First Intent:</b>
+            <br>
+            <label for = "first_intent_type"><b>Response Type</b></label>
+            <select id = "first_intent_type", name = "first_intent_type">
+              <option value ="text">Text</option>
+              <option value ="q_replies">Quick Replies</option>
+              <option value ="template">Template</option>
+              <option value ="attachment">Attachment</option>
+            </select>
+            <textarea name="first_response" cols="30" minlength="10" maxlength="1600" placeholder="The Response when the App identify the first Intent." required="required"></textarea>
+            
+            
+            
+            
+            <hr>
+            <b>Second Intent name:</b>
+            <input type="text" name="second_intent" minlength="2" maxlength="20" placeholder="Name of the Second Intent." required="required">
+            <br><br>
+            <b>Utterance for the Second Intent:</b>
+            <input type="text" name="second_utterance" minlength="2" maxlength="80" placeholder="EX: What is the refund policy?" required="required">
+            <br><br>
+            <b>Response for the Second Intent:</b>
+            <br>
+            <label for = "second_intent_type"><b>Response Type</b></label>
+            <select id = "second_intent_type", name = "second_intent_type">
+              <option value = "text">Text</option>
+              <option value = "q_replies">Quick Replies</option>
+              <option value = "template">Template</option>
+              <option value = "attachment">Attachment</option>
+            </select>
+            <textarea name="second_response" cols="30" minlength="10" maxlength="1600" placeholder="The Response when the App identify the second Intent." required="required"></textarea>
+            <br><br>
+            <input type="submit" value="Next">
+        </form>
+    </div>
+</center>
+
+<%- include("footer") -%>

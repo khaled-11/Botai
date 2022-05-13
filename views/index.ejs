@@ -1,0 +1,341 @@
+
+<!-- <body style="background-color: white;">
+  <div class="fb-customerchat"
+    attribution=setup_tool
+    page_id="105523128151698"
+    logged_in_greeting="Hey, I can answer some of your questions!"
+    logged_out_greeting="Hey, I can answer some of your questions!">
+  </div>
+
+
+  <div class="form-group col-md-12" style="margin-top:100px;">
+    <div class="d-flex justify-content-center">
+      <h2>Welcome to Botai.me</h2>
+    </div>
+    <br>
+    <div class="d-flex justify-content-center">
+      <h5 style="text-align: center;">Home for AI-powered Messenger Chatbots!</h5>
+    </div>
+    <div class="col-sm-12">
+      <div class="d-flex justify-content-center">
+        <div id="mainCor" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#mainCor" data-slide-to="0" class="active"></li>
+            <li data-target="#mainCor" data-slide-to="1"></li>
+            <li data-target="#mainCor" data-slide-to="2"></li>
+            <li data-target="#mainCor" data-slide-to="3"></li>
+            <li data-target="#mainCor" data-slide-to="4"></li>
+            <li data-target="#mainCor" data-slide-to="5"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="img-fluid" src="/easy.png" alt="First slide">
+            </div>
+            <div class="carousel-item">
+              <img class="img-fluid" src="/setup.png" alt="Second slide">  
+            </div>
+            <div class="carousel-item">
+              <img class="img-fluid" src="/Messenger.png" alt="Third slide">     
+            </div>
+            <div class="carousel-item">
+              <img class="img-fluid" src="/responses.png" alt="Fourth slide">     
+            </div>
+            <div class="carousel-item">
+              <img class="img-fluid" src="/api1.png" alt="Fifth slide">    
+            </div>
+            <div class="carousel-item">
+              <img class="img-fluid" src="/api2.png" alt="Sixth slide">   
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div id = "main_btn">
+      </div>
+    </div>
+    <br>
+      <div class="d-flex justify-content-center">
+        <p>Please read our <a href = "/terms">terms and services.</a></p>
+      </div>
+  </div>
+</body> -->
+
+
+
+
+<%- include("header_main") -%> 
+<style>
+  body, html {
+    height: 100%;
+    width: 100%;
+  }
+  .spinner-grow {
+    width: 180px;
+    height: 180px;
+    margin-top: 250px;
+  }
+  .hero-img {
+    background-image: url('/Botai_hero.webp');
+    height: 800px;
+    position: relative;
+    filter: brightness(103%), contrast(105%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+
+  .hero-text {
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 74%;
+    margin-left: 13%;
+    margin-top: 10px;
+
+  }
+
+  .hero-text h1{
+    margin-bottom: 22px;
+    line-height: 45px;
+  }
+
+  .hero-text p{
+    margin-bottom: 40px;
+    line-height: 26px;
+    font-size: 18px;
+  }
+
+  .hero-btn {
+    text-align: center;
+    font-size: 155%;
+    padding:6px ;
+    padding-left: 22px; 
+    padding-right: 22px;
+  }
+
+  @media only screen and (max-width: 550px) {
+    .spinner-grow {
+      width: 120px;
+      height: 120px;
+      margin-top: 180px;
+    }
+    .hero-btn {
+      text-align: center;
+      font-size: 110%;
+    }
+  }
+
+  @media only screen and (max-width: 300px) {
+    .spinner-grow {
+      width: 80px;
+      height: 80px;
+      margin-top: 150px;
+    }
+    .hero-text h1{
+      margin-bottom: 15px;
+      line-height: 38px;
+    }
+    .hero-text p{
+      margin-bottom: 15px;
+      line-height: 20px;
+      font-size: 16px;
+    }
+    .hero-btn {
+      text-align: center;
+      font-size: 80%;
+    }
+  }
+</style>
+  <title>Botai | Home for AI-powered Chatbots</title>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0&appId=189993795563654&autoLogAppEvents=1" nonce="pG1IzRJN"></script>
+</head>
+<body style="background-color: #f8f9fa;">
+  <!-- <div class="fb-customerchat"
+    attribution=setup_tool
+    page_id="105523128151698"
+    logged_in_greeting="Hey, I can answer some of your questions!"
+    logged_out_greeting="Hey, I can answer some of your questions!">
+  </div> -->
+
+  <div class = "text-center" id = "loader">
+    <div class="spinner-grow text-center" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+  </div>
+
+  <div style = "display: none; width : 100%; height: 100%;" id = main>
+    <div class = "hero-img">
+      <div class="hero-text" onmouseenter="hover_act()" onmouseleave= "hover_rmv()" id = "text_head" style = "display: none;">
+        <h1>Create and deploy powerful chatbots in minutes</h1>
+        <p id = "in_text">We made it simple for everyone! Create a chatbot, train it with our templates or your data, then customize the responses for multiple channels. That is all, couple clicks and your chatbot will be live!</p>
+        <button onclick ="window.location.href='/login'" class = "btn btn-outline-dark hero-btn">Get Started</button>
+      </div>
+
+      </div>
+    <div class="text-center">
+      <a style = "color: black;" href='https://www.freepik.com/vectors/frame'>Frame vector created by rawpixel.com - www.freepik.com</a>
+    </div>
+<div class="form-group col-md-12" style="margin-top:100px;">
+  <div class="d-flex justify-content-center">
+    <h2>Welcome to Botai.me</h2>
+  </div>
+  <br>
+  <div class="d-flex justify-content-center">
+    <h5 style="text-align: center;">Home for AI-powered Chatbots!</h5>
+  </div>
+  <div class="col-sm-12">
+    <div class="d-flex justify-content-center">
+      <div id="mainCor" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#mainCor" data-slide-to="0" class="active"></li>
+          <li data-target="#mainCor" data-slide-to="1"></li>
+          <li data-target="#mainCor" data-slide-to="2"></li>
+          <li data-target="#mainCor" data-slide-to="3"></li>
+          <li data-target="#mainCor" data-slide-to="4"></li>
+          <li data-target="#mainCor" data-slide-to="5"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="img-fluid" src="/easy.png" alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <img class="img-fluid" src="/setup.png" alt="Second slide">  
+          </div>
+          <div class="carousel-item">
+            <img class="img-fluid" src="/Messenger.png" alt="Third slide">     
+          </div>
+          <div class="carousel-item">
+            <img class="img-fluid" src="/responses.png" alt="Fourth slide">     
+          </div>
+          <div class="carousel-item">
+            <img class="img-fluid" src="/api1.png" alt="Fifth slide">    
+          </div>
+          <div class="carousel-item">
+            <img class="img-fluid" src="/api2.png" alt="Sixth slide">   
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <div id = "main_btn">
+    </div>
+  </div>
+  <br>
+    <div class="d-flex justify-content-center">
+      <p>Please read our <a href = "/terms">terms and services.</a></p>
+    </div>
+</div>
+  </div>
+
+
+  <div class="fb-customerchat"
+  attribution=setup_tool
+  page_id="105523128151698"
+  logged_in_greeting="Hey, I can answer some of your questions!"
+  logged_out_greeting="Hey, I can answer some of your questions!">
+  </div>
+
+</body>
+
+<script>
+
+
+
+  window.fbAsyncInit = function() {
+  FB.init({
+    xfbml            : true,
+    version          : 'v9.0'
+  });
+};
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+<script>
+function checkLoginState(){
+    FB.getLoginStatus(function(response) {
+        if (response && response.status === 'connected') {
+          window.location.href=`/check?userID=${response.authResponse.userID}&token=${response.authResponse.accessToken}`
+        }
+    });
+}
+</script>
+
+<script>
+  var hover_action = false
+  var i = 0;
+  var j = 0;
+  var head = ["AI-powered chatbots are simple and smart", 'Create and deploy powerful chatbots in minutes']
+  var txt = ['Say goodbye to the traditional flow, and say welcome to Artificial Intelligence. With Botai, you will train the chatbot to understand users text or voice message meaning, then match it with your responses.', 'We made it simple for everyone! Create a chatbot, train it with our templates or your data, then customize the responses for multiple channels. That is all, couple clicks and your chatbot will be live!']
+  function sleep (time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+  }
+  function hover_act(){
+    hover_action = true
+  }
+  function hover_rmv(){
+    hover_action = false
+  }
+
+  $(document).ready(async function() {
+      await sleep(1500)
+      $('#loader').hide()
+      $('#main').show('slow')
+      await sleep(700)
+      $('#text_head').fadeIn("slow");
+      async function header(){
+        if (hover_action){
+          clearInterval(intervalHandle);
+          while (hover_action){
+            await sleep(200)
+          }
+          await sleep(2200)
+          $('#text_head').fadeOut("slow", async function(){
+          await sleep(100)
+          $('#text_head').replaceWith(`
+            <div class = "hero-text" onmouseenter="hover_act()" onmouseleave= "hover_rmv()" id = "text_head">
+              <h1>${head[i]}</h1>
+              <p id = "in_text">${txt[i]}</p>
+              <button onclick ="window.location.href='/login'" id = "get_started" class = "btn btn-outline-dark hero-btn">Get Started</button>
+            </div>
+          `);
+          $('#text_head').hide().fadeIn("slow");
+          if (i == head.length-1){
+            i = 0
+          } else {
+            i++
+          }
+          });
+          intervalHandle = setInterval(header,9000)
+        } else {
+          $('#text_head').fadeOut("slow", async function(){
+          await sleep(100)
+          $('#text_head').replaceWith(`
+            <div class = "hero-text" onmouseenter="hover_act()" onmouseleave= "hover_rmv()" id = "text_head">
+              <h1>${head[i]}</h1>
+              <p id = "in_text">${txt[i]}</p>
+              <button onclick ="window.location.href='/login'" id = "get_started" class = "btn btn-outline-dark hero-btn">Get Started</button>
+            </div>
+          `);
+          $('#text_head').hide().fadeIn("slow");
+          if (i == head.length-1){
+            i = 0
+          } else {
+            i++
+          }
+        });
+        }
+      }
+      var intervalHandle = setInterval(header,12000)
+  });
+</script>

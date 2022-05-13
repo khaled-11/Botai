@@ -1,0 +1,13 @@
+	// 	if (logged === "nav-link") {
+    //     <button class="btn btn-primary btn-md" style="font-weight:bold; padding: 8px 50px;" onclick="window.location.href='/dashboard'">Go to Dashboard</button>
+    //   } else { 
+    //     <h4 style="text-align: center; color:red"><%=type%></h4>
+    //     <div class="fb-login-button" data-scope= "public_profile, email" data-size="large" onlogin="checkLoginState" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>
+    //   }
+    // </div>
+    // <br>
+    // if (logged !== "nav-link") {
+    //   <div class="d-flex justify-content-center">
+    //     <p>Please read our <a href = "/terms">terms and services.</a></p>
+    //   </div>
+    // }

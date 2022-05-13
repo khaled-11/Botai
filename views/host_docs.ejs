@@ -1,0 +1,12 @@
+<%- include("header_main") -%> 
+  <title>Botai | Page Settings</title>
+</head>
+<body>
+  <div class="container-fluid" style = "width:98%">
+    <div class="d-flex justify-content-center" style="margin-top:100px; margin-bottom:15px;">
+      <h1>Hosting Documentations</h1>
+    </div>
+    <h3>How it works?</h3><hr><h4>Messaging:</h4><p>In the "Messaging", you can find the respoonses, logs, and comments. In the "Responses" tab, you can find more information about the current responses and create new responses. When you create new response you can choose if you want to use it with intents or postback payloads. We ask for backup text message to replace failing attachments and templates messages. For every message Botai receive or send, you can find the information and the status in the (Sent Messages / Received Messages) tabs. When your page receive a comment on new or old posts, you will find the information in the "Page Comments" tab. For each comment, you can send one message as a private reply in Messenger. You may choose to manually reply or ignore each comment or choose to auto reply to all comments. If you choose to auto reply to all comments, you can use a default response or use the Wit app to understand the comment and reply with the response for this intent.</p><hr><h4>Facebook Page:</h4><p>You can adjust most of the Messenger profile for <b>${pageData.page_name.S}</b> here in Botai dashboard. In the "Facebook Page" tab, you can adjust Greeting Message, Get Started Button, Persistent Menu, whitelisted domains, and Personas. Also, you can create and upload the picture of new personas to use with your responses.</p><hr><h4>Natural Language</h4><p>Botai integrates Wit.ai into this experience. You can create or use built-in intents, entities and traits from the "Natural Language" tab. Then, you can add utterances and train the App to identify the user input with some examples. Also, you can upload old App using the upload tool, or change to use an App from your account. When your page received comments or text, Botai will use the Wit app to understand the user messages and comments then reply if applicable.</p><hr>
+  </div>
+</body>
+<%- include("footer") -%>

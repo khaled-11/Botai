@@ -1,0 +1,179 @@
+<%- include("header_main") -%>
+  <script src = "/js_main?policy=host_"></script>
+  <script src = "/js_main?policy=host_ai"></script>
+  <script src = "/js_main?policy=host_page"></script>
+  <script src = "/js_main?policy=host_rest"></script>
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <title>Botai | Page Settings</title>
+</head>
+<body>
+<script>
+  </script>
+  <div class="page-wrapper chiller-theme">
+      <a id="show-sidebar" class="btn btn-sm btn-dark" style="color:white">
+        <i class="fas fa-bars"></i>
+      </a>
+    <nav id="sidebar" class="sidebar-wrapper" style="display:none">
+      <div class="sidebar-content">
+        <div class="sidebar-brand">
+          <a>Hosting settings</a>
+            <div id="close-sidebar">
+              <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <div class="sidebar-header">
+          <div class="user-pic">
+            <divPic></divPic>
+          </div>
+          <div class="user-info">
+            <span class="user-name">Page
+              <strong id = "page_name">Name</strong>
+            </span>
+            <span class="user-status">
+              <i class="fa fa-circle"></i>
+              <span>Running</span>
+            </span>
+          </div>
+        </div>
+        <div class="sidebar-menu">
+          <ul>
+            <li class="header-menu">
+              <span>Services</span>
+            </li>
+            <li class="sidebar-dropdown">
+              <a style = "cursor: pointer;">
+                <i class="fa fa-file-alt"></i>
+                <span>Natural Language</span>
+              </a>
+              <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <a style = "cursor: pointer;" onclick= "ai_tab('wit_app')">Wit App</a>
+                  </li>
+                  <li>
+                    <a style = "cursor: pointer;" onclick= "ai_tab('intent')">Intents</a>
+                  </li>
+                  <li>
+                    <a style = "cursor: pointer;" onclick= "ai_tab('entities')">Entities</a>
+                  </li>
+                  <li>
+                    <a style = "cursor: pointer;" onclick= "ai_tab('traits')">Traits</a>
+                  </li>
+                  <li>
+                    <a style = "cursor: pointer;" onclick= "ai_tab('utterances')">Utterances</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="sidebar-dropdown">
+              <a style = "cursor: pointer;">
+                <i class="fab fa-facebook" aria-hidden="true"></i>
+                <span>Facebook Page</span>
+              </a>
+              <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <a style = "cursor: pointer;" onclick= "FacebookTab('whitelist')">Whitelisted Domains</a>
+                  </li>
+                  <li>
+                    <a style = "cursor: pointer;" onclick= "FacebookTab('greeting')">Greeting Messages</a>
+                  </li>
+                  <li>
+                    <a style = "cursor: pointer;" onclick= "FacebookTab('get_started')">Get Started Button</a>
+                  </li>
+                  <li> 
+                    <a style = "cursor: pointer;" onclick= "FacebookTab('persistentMenu')">Persistent Menu</a>
+                  </li>
+                  <li>
+                    <a style = "cursor: pointer;" onclick= "FacebookTab('personas')">Reply Personas</a>
+                  </li>
+                </ul>    
+              </div>
+            </li>
+            <li class="sidebar-dropdown">
+              <a style = "cursor: pointer;">
+                <i class="fas fa-reply"></i>
+                <span>Messaging</span>
+              </a>
+              <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <a style = "cursor: pointer;" onclick= "messengerResponses()">Messenger Responses</a>
+                  </li>
+                  <li>
+                    <a style = "cursor: pointer;" onclick= "logs('receivedEvents')">Received Messages
+                    <span class="badge badge-pill badge-success" id = "received_count"></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a style = "cursor: pointer;" onclick= "privateReplies()">Page Comments
+                      <span class="badge badge-pill badge-success" id = "comments"></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a style = "cursor: pointer;" onclick= "logs('sendEvents')">Sent Messages
+                    <span class="badge badge-pill badge-success" id = "sent_count"></span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="header-menu">
+              <span>Other links</span>
+            </li>
+            <li class="sidebar-dropdown">
+              <a style = "cursor: pointer;">
+                <i class="fa fa-book"></i>
+                <span>Hosting Documentation</span>
+              </a>
+              <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <a style = "cursor: pointer;" onclick= "docSample('')">How it work
+                    </span> <div class="fas fa-external-link-alt fa-sm"></div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <a style = "cursor: pointer;" onclick= "mLink()">
+                <i class="fab fa-facebook-messenger"></i>
+                <span style = "margin-right:5px;">Messenger Link
+                </span> <div class="fas fa-external-link-alt fa-sm"></div>
+              </a>
+            </li>
+            <li>
+              <a style = "cursor: pointer;" onclick= "fbLink()">
+                <i class="fa fa-flag fa-stack"></i>
+                <span style = "margin-right:5px;">Facebook Page
+                </span> <div class="fas fa-external-link-alt fa-sm"></div>
+              </a>
+            </li>
+            
+            <li>
+              <a style = "cursor: pointer;" onclick= "allPages()">
+                <i class="fa fa-list"></i>
+                <span>All Pages</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- sidebar-wrapper  -->
+    <main class="page-content"  onclick= 'checkMenu()'>
+      <div class="container-fluid">
+        <div class="row justify-content-center" id="load22">
+          <div class="spinner-grow text-primary" style="width: 6rem; height: 6rem; margin-top:160px; margin-bottom:150px" role="status" id="loader">
+          </div>
+          </div>     
+          <divMain></divMain>
+          <input class="form-control" style = "display:none" value="<%=page_id%>" id="page_h_id" type="text">    
+        <footer class="text-center">
+          <%- include("footer") -%>
+        </footer>
+      </div>
+    </main>
+  </div>
+</body>

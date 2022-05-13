@@ -1,0 +1,15 @@
+<%- include("header_main") -%> 
+  <title>Botai | Page Settings</title>
+</head>
+<body>
+  <div class="container-fluid" style = "width:98%">
+    <div class="d-flex justify-content-center" style="margin-top:100px; margin-bottom:15px;">
+      <h1>API Documentations</h1>
+      </div>
+      <h3>How it works?</h3><hr><h4>POST URL and Secret:</h4><p>To start using the API version of Botai, you need to have a webhook with endpoint that accepts <b>POST</b> requests. When your Facebook page receive Messaging events or new comments on posts, Botai will send the details of these events to this endpoint. You can reply back with responses or ignore the event. If you reply back, you may add <b>Persona ID</b> and <b>Secondary Responses</b>. Botai use the secondary responses to replace any of the main responses if it failed for any reason. You can find a sample endpoint code Below.</p><hr><h4>Facebook Page:</h4><p>You can adjust most of the Messenger profile here in Botai dashboard. In the "Facebook Page" tab, you can adjust Greeting Message, Get Started Button,  Persistent Menu, whitelisted domains, and Personas. Also, you can create and upload the picture of new personas to use with your responses. In the upcoming version, Botai will have endpoints to update the Messenger profile.</p><hr><h4>Natural Language</h4><p>Botai integrates Wit.ai into this experience. You can create or use built-in intents, entities and traits from the "Natural Language" tab. Then, you can add utterances and train the App to identify the user input with some examples. Also, you can upload old App using the upload tool, or change to use an App from your account. When your page received comments or text, Botai will include the NLP results in the POST request.</p><hr> 
+      <h4 id = "code">Endpoint Sample Code</h4><p>This is a sample code for endpoint in Node.js (Express). This example show how to reply with combination of different messages. In the first part, you will see some samples for different type of supported messages. The second part explain how to check the request to decide what to send in the reply.</p>
+      <script src="https://gist.github.com/khaled-11/0a56d02938e26a4a7482b5972c6b0576.js"></script>
+    </div>
+
+</body>
+<%- include("footer") -%>

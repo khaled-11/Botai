@@ -1,0 +1,37 @@
+<%- include("header_main") -%> 
+  <title>Botai | Data Deleted.</title>
+  <script type="text/javascript" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0&appId=189993795563654&autoLogAppEvents=1" nonce="pG1IzRJN"></script>
+</head>
+<body>      
+  <script>
+    myFetch();
+    async function myFetch(){
+    await fetch('/delete_data')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("loader").style.display = 'none';
+        document.getElementById("msg").innerHTML = `${data.msg}`;
+      })
+      .catch((error) => {
+          window.location.reload(); 
+      });
+    }
+    FB.getLoginStatus(function(response) {
+      if (response && response.status === 'connected') {
+        FB.Event.unsubscribe(response, function (res){
+        })  
+      }
+    });
+  </script>
+  <div class="form-group col-md-12" style="margin-top:20px;margin-bottom:15px;">
+    <div class="d-flex justify-content-center">
+      <h1>Delete Account</h1>
+    </div>
+    <div class="row justify-content-center">
+      <div class="loader" id="loader" style="background-color:#fff; padding: 40px; margin-top:145px"></div>  
+    </div>
+    <div class="d-flex justify-content-center">
+      <h2 id = "msg" style="margin-top:75px;margin-bottom:80px;"></h2>
+    </div>
+  </div>
+<%- include("footer") -%>
